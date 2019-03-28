@@ -19,6 +19,9 @@ def main():
     # checks the values on the plot
     plot_corr(df)
 
+    # deletes the column that it is consider correlated to another
+    del df['skin']
+
 
 
 if __name__ == "__main__":
