@@ -22,6 +22,18 @@ def main():
     # deletes the column that it is consider correlated to another
     del df['skin']
 
+    # modilg data
+    diabetes_map = {True: 1, False: 0}
+    df['diabetes'] = df['diabetes'].map(diabetes_map)
+
+    # checks rare events see if there is enough values to make the prediction check true/false ratio
+    num_obs = len(df)
+    num_true = len(df.loc[df['diabetes'] == 1])
+    num_false = len(df.loc[df['diabetes'] == 0])
+    print("Number of True cases:  {0} ({1:2.2f}%)".format(num_true, (num_true/num_obs) * 100))
+    print("Number of False cases: {0} ({1:2.2f}%)".format(num_false, (num_false/num_obs) * 100))
+
+
 
 
 if __name__ == "__main__":
